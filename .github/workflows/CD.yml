@@ -31,5 +31,5 @@ jobs:
           server: ${{ secrets.SERVIDOR }}
           username: ${{ secrets.USUARIO }}
           server-dir: ${{ secrets.RUTA }}
-          local-dir: ./www/
+          local-dir: ./dist/
           password: ${{ secrets.CLAVE }}
