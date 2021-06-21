@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: 🦅 Actualizar build por SSH
-        uses: appleboy/scp-action@master
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SERVIDOR }}
           username: ${{ secrets.USUARIO }}
