@@ -12,24 +12,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 🐯 Obtener código del repositorio
-        uses: actions/checkout@v2
-
-      - name: 🐝 Usar Node
-        uses: actions/setup-node@v2
+      - name: 🦅 Entrar por SSH
+        uses: appleboy/ssh-action@master
         with:
-          node-version: '14'
-
-      - name: 🔨 Hacer build
-        run: |
-          npm install
-          npm run build
-
-      - name: 🦅 Enviar por FTP
-        uses: SamKirkland/FTP-Deploy-Action@4.0.0
-        with:
-          server: ${{ secrets.SERVIDOR }}
+          host: ${{ secrets.SERVIDOR }}
           username: ${{ secrets.USUARIO }}
-          server-dir: ${{ secrets.RUTA }}
-          local-dir: ./dist/
           password: ${{ secrets.CLAVE }}
+          script: whoami
