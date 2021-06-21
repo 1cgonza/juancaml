@@ -19,6 +19,9 @@ jobs:
           username: ${{ secrets.USUARIO }}
           password: ${{ secrets.CLAVE }}
           script: |
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
             cd /var/www/juanca.ml/www/
+            git pull
             yarn i
             yarn build
